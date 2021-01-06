@@ -5,20 +5,30 @@
         function randomInt(min, max){
             return Math.floor(Math.random() * (max + 1 - min)) + min;
         }
+        
         function myFunction() {
             var num = Math.floor(Math.random() * 9) + 1; //Return a number from 1 to 9
             var word = num.toString();
-            document.getElementById("problem").innerHTML = "New Sample Problem " + word;
+            document.getElementById("problem").innerHTML = "New Sample Problem " + createRandomBasicMathQuestion();
         }
+
         function createRandomBasicMathQuestion(){
             var operator = randomInt(1,4);
             var num1 = randomInt(1,9);
             var num2 = randomInt(1,9);
             
-            if(operator==4){
+            var symb = "+";
+            if(operator ==2){
+                symb = "-";
+            }
+            else if (operator ==3){
+                symb = "*";
+            }
+            else if(operator==4){
+                symb = "/";
                 num1*=num2;
             }
-            
+            return num1 + symb + num2;
         }
     </script>
 </head>
